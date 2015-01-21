@@ -8,17 +8,18 @@ window.addEventListener("click", function(e) {
          elem = elem.parentElement) {
       if (elem instanceof HTMLAnchorElement) {
         console.debug('contentscript: AnchorElement');
-        let combination = [
+        const combination = [
           e.shiftKey? 'S': '-',
           e.ctrlKey ? 'C': '-',
           e.altKey  ? 'A': '-',
           e.metaKey ? 'M': '-'
         ].join('');
-        let action = options.ActionsForModifierCombination[combination];
+        const action = options.ActionsForModifierCombination[combination];
         if (action) {
           self.port.emit(action, elem.href);
           e.preventDefault();
           e.stopPropagation();
+          return; /* innermost anchor only */
         }
       }
     }
