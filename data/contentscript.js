@@ -14,7 +14,7 @@ window.addEventListener("click", function(e) {
           e.altKey  ? 'A': '-',
           e.metaKey ? 'M': '-'
         ].join('');
-        let action = options.actionsForModifierCombination[combination];
+        let action = options.ActionsForModifierCombination[combination];
         if (action) {
           self.port.emit(action, elem.href);
           e.preventDefault();
