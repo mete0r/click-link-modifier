@@ -9,5 +9,4 @@ click-link-modifier
 
 TODO
 ----
-- use `sdk/tabs` instead of `sdk/page-mod`
 - make it configurable / add ui
